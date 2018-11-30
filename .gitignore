@@ -1,5 +1,5 @@
 .idea
-.gradle
+.gradle*
 *.iml
 out
 build
@@ -13,6 +13,9 @@ target
 .classpath
 WebContent
 bin
+mvnw*
+.jdk*
+.mvn/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
