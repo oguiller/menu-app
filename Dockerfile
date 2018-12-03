@@ -1,4 +1,7 @@
 FROM openjdk:8-jdk-alpine
+
+MAINTAINER Guillermo Rodriguez <guillermo@oguiller.com>
+
 VOLUME /tmp
 ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
