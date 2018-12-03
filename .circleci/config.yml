@@ -29,3 +29,12 @@ jobs: # a collection of steps
     - store_artifacts: # store the uberjar as an artifact
         path: target/menu-app-0.0.1-SNAPSHOT.jar
     # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+
+    - setup_remote_docker:
+        docker_layer_caching: true
+    - run:
+        name: Build and push Docker image
+        command: |
+            docker build -t oguiller/$IMAGE_NAME:$TAG .
+            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker push oguiller/$IMAGE_NAME:$TAG
